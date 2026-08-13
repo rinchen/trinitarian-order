@@ -1,17 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Trinitarian Cross of the Two Colors">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Trinitarian Cross of the Two Colors">
   <title>Trinitarian Cross of the Two Colors</title>
-  <rect width="120" height="120" rx="14" fill="#fffdf8"/>
-  <!-- Cross: white field with red upper arm and blue lower arm -->
-  <g>
-    <!-- white cross base -->
-    <rect x="46" y="14" width="28" height="92" fill="#ffffff" stroke="#2b2723" stroke-width="2"/>
-    <rect x="22" y="40" width="76" height="28" fill="#ffffff" stroke="#2b2723" stroke-width="2"/>
-    <!-- red upper vertical bar -->
-    <rect x="46" y="14" width="28" height="26" fill="#9c1f2e"/>
-    <!-- blue lower vertical bar -->
-    <rect x="46" y="54" width="28" height="52" fill="#1f3a6e"/>
-    <!-- thin gold frame on cross -->
-    <rect x="46" y="14" width="28" height="92" fill="none" stroke="#b08d3c" stroke-width="1.5"/>
-    <rect x="22" y="40" width="76" height="28" fill="none" stroke="#b08d3c" stroke-width="1.5"/>
-  </g>
+  <!-- Greek cross: blue horizontal bar, red vertical bar on top (equal arms). -->
+  <rect width="1000" height="1000" fill="#ffffff"/>
+  <rect width="1000" height="200" y="400" fill="#003380"/>
+  <rect width="200" height="1000" x="400" fill="#aa0000"/>
 </svg>

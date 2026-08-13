@@ -35,7 +35,8 @@ jobs:
           chmod +x scripts/stage_site.sh
           ./scripts/stage_site.sh
 
-      # Absolute /trinitarian-order/… nav/favicon links must target the preview subpath.
+      # Rewrite any leftover absolute /trinitarian-order/… refs for the preview subpath.
+      # Page/asset links are relative; this mainly covers odd absolute leftovers.
       - name: Rewrite base path for preview
         if: github.event.action != 'closed'
         env:

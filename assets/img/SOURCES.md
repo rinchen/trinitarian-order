@@ -4,7 +4,7 @@ Web-sized copies committed for GitHub Pages. Originals remain on Commons / Wellc
 
 | File | Source | License |
 |------|--------|---------|
-| `trinitarian-cross.svg` | Site artwork | MIT (site code) |
+| `trinitarian-cross.svg` | Site artwork (Greek Cross of Two Colors: red vertical over blue horizontal; proportions match traditional emblem) | MIT (site code) |
 | `favicon.svg` | Site artwork | MIT (site code) |
 | `favicon-32x32.png` | Rasterized from `favicon.svg` | MIT (site code) |
 | `trinitarian-church-rome.jpg` | [Santissima Trinità degli Spagnoli (Rome) - Interior.jpg](https://commons.wikimedia.org/wiki/File:Santissima_Trinit%C3%A0_degli_Spagnoli_(Rome)_-_Interior.jpg) — Livioandronico2013 | CC BY-SA 4.0 |

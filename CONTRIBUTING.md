@@ -5,15 +5,20 @@ Thanks for helping with this informational site about the Trinitarian Order
 
 ## Rules of thumb
 
-1. **Every `<img src>` / local `href` under `/trinitarian-order/` must exist on disk.**
-   Prefer adding licensed assets under `assets/img/` and documenting them in
+1. **Every local `<img src>` / `href` must exist on disk.** Prefer adding
+   licensed assets under `assets/img/` and documenting them in
    `assets/img/SOURCES.md`.
-2. **Keep absolute `/trinitarian-order/…` URLs** — required for GitHub Pages and
-   PR preview rewrites. Do not switch to relative asset paths.
+2. **Use relative URLs** for pages and assets (`assets/…`, `about.html`) so
+   `file://`, GitHub Pages, and PR previews all resolve correctly.
 3. **No build step / no framework.** Prefer shared CSS classes over inline
    `style=` (CSP forbids inline styles). Lint with `npm run lint` and Ruff
    before opening a PR.
-4. **Trisagion:** Italian is authoritative. After editing `trisagion.html`, run:
+4. **Trisagion:** Keep English short (*The Trinitarian Way*), modern English
+   longer (USA — not the 2010 handbook long form), and Italian Curia forms
+   distinct. English prayer text uses &ldquo;God of
+   hosts&rdquo; (2011 Missal); keep the prominent note that the 2010 handbook
+   short and long forms still have &ldquo;God of power and might&rdquo; and that
+   wording remains permitted. After editing `trisagion.html`, run:
    ```bash
    python3 scripts/check_trisagion.py
    python3 -m unittest discover -s tests -v
@@ -27,7 +32,7 @@ Thanks for helping with this informational site about the Trinitarian Order
 
 ## Preview locally
 
-See README — serve under `/trinitarian-order/` via a symlink + `python3 -m http.server`.
+Open `index.html` in a browser, or `python3 -m http.server 8000` from the repo root.
 
 ## Pull requests
 

@@ -12,7 +12,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["index.html", "about.html", "feast-days.html", "trisagion.html", "join.html"]
-BASE = "/trinitarian-order/"
+
+
+def _local_refs(html: str) -> list[str]:
+    refs = []
+    for m in re.finditer(r'(?:src|href)="([^"]+)"', html):
+        ref = m.group(1)
+        if ref.startswith(("http://", "https://", "mailto:", "#")):
+            continue
+        refs.append(ref.split("#", 1)[0].split("?", 1)[0])
+    return refs
 
 
 class TestSiteCore(unittest.TestCase):
@@ -24,11 +33,23 @@ class TestSiteCore(unittest.TestCase):
         missing = []
         for name in PAGES:
             html = (ROOT / name).read_text(encoding="utf-8")
-            for m in re.finditer(r'(?:src|href)="(/trinitarian-order/[^"#?]+)"', html):
-                rel = m.group(1)[len(BASE) :]
-                path = ROOT / rel
+            for ref in _local_refs(html):
+                if not ref:
+                    continue
+                path = (ROOT / ref).resolve()
+                try:
+                    path.relative_to(ROOT.resolve())
+                except ValueError:
+                    missing.append(f"{name}: escapes root via {ref}")
+                    continue
                 if not path.is_file():
-                    missing.append(f"{name}: {m.group(1)}")
+                    missing.append(f"{name}: {ref}")
+            # Prefer relative URLs so file:// and Pages/previews all work.
+            self.assertNotIn(
+                "/trinitarian-order/",
+                html,
+                f"{name} still has absolute /trinitarian-order/ paths",
+            )
         self.assertEqual(missing, [], "broken local asset refs:\n" + "\n".join(missing))
 
     def test_shared_chrome(self):
@@ -80,11 +101,24 @@ class TestTrisagion(unittest.TestCase):
         )
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
 
-    def test_no_forbidden_calques(self):
+    def test_sanctus_variants_present(self):
         html = (ROOT / "trisagion.html").read_text(encoding="utf-8")
         self.assertNotIn("Make it that", html)
         self.assertNotIn("persevering coherence", html)
-        self.assertIn("new breath of Your love", html)
+        self.assertIn("God of hosts", html)
+        self.assertIn("Lord God of hosts", html)
+        self.assertIn("God of power and might", html)  # 2010 handbook note
+        self.assertIn("2010", html)
+        self.assertIn("2011", html)
+        self.assertIn("USA", html)
+        self.assertIn("Modern (USA)", html)
+        self.assertIn("Dio dell", html)
+        self.assertIn('class="source-note"', html)
+        # English Sanctus must not calque Italian "Dio dell'universo"
+        self.assertNotRegex(
+            html,
+            r"Holy,\s*Holy,\s*Holy[^.]{0,80}God of the universe",
+        )
 
 
 class TestPreviewRewrite(unittest.TestCase):

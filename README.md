@@ -12,9 +12,9 @@ Sections:
   the Cross of the Two Colors.
 - **Feast Days** (`feast-days.html`) — the Order's proper liturgical calendar,
   from *The Trinitarian Way* handbook.
-- **Trisagion** (`trisagion.html`) — the official short (*Forma normale*) and
-  solemn (*Forma Solenne*) forms members pray daily (Italian authoritative +
-  English rendering).
+- **Trisagion** (`trisagion.html`) — English short form from *The Trinitarian
+  Way*, modern English longer form used in the USA, plus Italian *Forma normale*
+  and *Forma Solenne* from the Curia Generalizia.
 - **Join** (`join.html`) — religious vocations and the lay Third Order, with a
   call to action.
 
@@ -26,7 +26,7 @@ PR-preview pattern.
 
 Layout:
 ```
-*.html                 → pages (absolute /trinitarian-order/… links)
+*.html                 → pages (relative links — works with file:// and Pages)
 assets/css/main.css    → shared styles
 assets/js/             → site-nav, back-to-top, copy-trisagion
 assets/img/            → SVGs + licensed rasters (see SOURCES.md)
@@ -35,27 +35,22 @@ tests/                 → unittest site integrity
 .github/workflows/     → test.yml, pages.yml, preview.yml
 ```
 
-## Local preview (before any push)
+## Local preview
 
-The pages use absolute `/trinitarian-order/…` links (so PR previews work). To
-preview faithfully, serve the repo from a directory where it sits under
-`trinitarian-order/`:
+You can open any page directly in the browser (`file://…/index.html`) — CSS, JS,
+and images use relative paths.
+
+Optional HTTP server (useful if you want to mirror the GitHub Pages URL shape):
 
 ```bash
 # From the repo root:
-mkdir -p /tmp/trin
-ln -sfn "$PWD" /tmp/trin/trinitarian-order
-python3 -m http.server 8000 --directory /tmp/trin
-# open http://localhost:8000/trinitarian-order/
+python3 -m http.server 8000
+# open http://localhost:8000/
 ```
 
-> Opening `index.html` via `file://` will NOT resolve the absolute
-> `/trinitarian-order/` asset links — use the HTTP server above.
-
 ### Verify
-1. All 5 pages load with no 404s (favicon SVG + PNG, CSS, JS, photos, SVGs under
-   `/trinitarian-order/`). Home banner is cropped to a reasonable height (not
-   full-viewport-tall).
+1. All 5 pages load with no 404s (favicon SVG + PNG, CSS, JS, photos, SVGs).
+   Home banner is cropped to a reasonable height (not full-viewport-tall).
 2. Nav links work from every page; the active page is marked `aria-current`.
    At ~375px use the **Menu** toggle — no horizontal scroll.
 3. Trisagion: Italian/English readable layout; language tabs on narrow screens;
