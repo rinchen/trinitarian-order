@@ -8,8 +8,8 @@ This site is **not** an official publication of the Order.
 Sections:
 - **Home** (`index.html`) — overview and navigation.
 - **About** (`about.html`) — founding (1198, St. John de Matha & St. Felix de
-  Valois; approved by Pope Innocent III), the charism of ransoming captives, and
-  the Cross of the Two Colors.
+  Valois; approved by Pope Innocent III), the charism of ransoming captives,
+  the Cross of the Two Colors, and *The Trinitarian Way* English handbook.
 - **Feast Days** (`feast-days.html`) — the Order's proper liturgical calendar,
   from *The Trinitarian Way* handbook.
 - **Trisagion** (`trisagion.html`) — English short form from *The Trinitarian
