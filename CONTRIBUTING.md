@@ -25,9 +25,11 @@ Thanks for helping with this informational site about the Trinitarian Order
    ```
 5. **Feast days:** add rows to the table in `feast-days.html` with
    `data-label="Date|Feast|Rank"` on every cell. Keep About patrons consistent.
-6. **Chrome drift:** header/nav/footer are duplicated across the five HTML
-   pages. Mirror CSP, nav, footer `#sources` link, and script tags on all pages.
-7. **Deploy list:** new root files must be added to `scripts/stage_site.sh` and
+6. **Chrome drift:** header/nav/footer/CSP are duplicated across the five HTML
+   pages. Keep CSP identical; mirror nav, footer `#sources` link, and script tags.
+7. **Favicon:** after editing `assets/img/favicon.svg`, run
+   `./scripts/regen_favicon.sh`.
+8. **Deploy list:** new root files must be added to `scripts/stage_site.sh` and
    the path filter in `.github/workflows/pages.yml`.
 
 ## Preview locally

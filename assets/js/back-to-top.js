@@ -11,6 +11,15 @@
   }
 
   var ticking = false;
+  var supportsPreventScroll = false;
+  try {
+    var opts = Object.defineProperty({}, 'preventScroll', {
+      get: function () { supportsPreventScroll = true; return false; }
+    });
+    document.createElement('div').focus(opts);
+  } catch (_err) {
+    supportsPreventScroll = false;
+  }
 
   function onScroll() {
     if (ticking) return;
@@ -40,9 +49,12 @@
       behavior: prefersReduced ? 'auto' : 'smooth'
     });
     var main = document.getElementById('main-content');
-    if (main) {
-      try { main.focus({ preventScroll: true }); }
-      catch (_err) { main.focus(); }
+    if (!main) return;
+    if (supportsPreventScroll) {
+      main.focus({ preventScroll: true });
+    } else if (typeof main.focus === 'function') {
+      // Avoid focus() without preventScroll — it can fight smooth scrollTo.
+      try { main.setAttribute('tabindex', main.getAttribute('tabindex') || '-1'); } catch (_e) { /* ignore */ }
     }
   });
 })();

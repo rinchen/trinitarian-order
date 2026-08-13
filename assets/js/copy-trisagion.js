@@ -2,10 +2,17 @@
   var btns = document.querySelectorAll('[data-copy-trisagion]');
   if (!btns.length) return;
 
+  var ALLOWED_LANG = { en: true, it: true };
+  var COPY_TIMEOUT_MS = 8000;
+
   function collectText(container, lang) {
     var out = [];
-    var selector = lang ? '.prayer[lang="' + lang + '"]' : '.prayer';
-    var prayers = container.querySelectorAll(selector);
+    var prayers;
+    if (lang && ALLOWED_LANG[lang]) {
+      prayers = container.querySelectorAll('.prayer[lang="' + lang + '"]');
+    } else {
+      prayers = container.querySelectorAll('.prayer');
+    }
     prayers.forEach(function (prayer) {
       var lines = [];
       var label = prayer.getAttribute('data-lang');
@@ -23,21 +30,27 @@
     var ta = document.createElement('textarea');
     ta.value = text;
     ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.top = '0';
-    ta.style.left = '0';
-    ta.style.opacity = '0';
+    ta.className = 'copy-fallback';
     document.body.appendChild(ta);
-    ta.focus();
-    ta.setSelectionRange(0, text.length);
     var ok = false;
     try {
+      ta.focus();
+      ta.setSelectionRange(0, text.length);
       ok = document.execCommand('copy');
     } catch (_err) {
       ok = false;
+    } finally {
+      if (ta.parentNode) document.body.removeChild(ta);
     }
-    document.body.removeChild(ta);
     return ok;
+  }
+
+  function canUseAsyncClipboard() {
+    return Boolean(
+      window.isSecureContext &&
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText === 'function'
+    );
   }
 
   btns.forEach(function (btn) {
@@ -58,8 +71,14 @@
         btn.textContent = original;
         btn.classList.remove('is-error');
         busy = false;
+        btn.disabled = false;
         timer = null;
       }, 1800);
+    }
+
+    function finish(ok) {
+      // Keep disabled until status timer clears busy (avoids silent no-ops).
+      setStatus(ok ? 'Copied ✓' : 'Copy failed', !ok);
     }
 
     btn.addEventListener('click', function () {
@@ -69,32 +88,45 @@
 
       var container = document.getElementById(btn.getAttribute('data-copy-trisagion'));
       if (!container) {
-        btn.disabled = false;
-        setStatus('Copy failed', true);
+        finish(false);
         return;
       }
 
       var lang = btn.getAttribute('data-copy-lang') || '';
+      if (lang && !ALLOWED_LANG[lang]) lang = '';
       var text = collectText(container, lang).trim();
       if (!text) {
-        btn.disabled = false;
-        setStatus('Copy failed', true);
+        finish(false);
         return;
       }
 
-      var finish = function (ok) {
-        btn.disabled = false;
-        setStatus(ok ? 'Copied ✓' : 'Copy failed', !ok);
+      if (!canUseAsyncClipboard()) {
+        finish(fallbackCopy(text));
+        return;
+      }
+
+      var settled = false;
+      var watchdog = setTimeout(function () {
+        if (settled) return;
+        settled = true;
+        finish(fallbackCopy(text));
+      }, COPY_TIMEOUT_MS);
+
+      var done = function (ok) {
+        if (settled) return;
+        settled = true;
+        clearTimeout(watchdog);
+        finish(ok);
       };
 
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
         navigator.clipboard.writeText(text).then(function () {
-          finish(true);
+          done(true);
         }).catch(function () {
-          finish(fallbackCopy(text));
+          done(fallbackCopy(text));
         });
-      } else {
-        finish(fallbackCopy(text));
+      } catch (_err) {
+        done(fallbackCopy(text));
       }
     });
   });

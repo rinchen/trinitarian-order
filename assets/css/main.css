@@ -237,7 +237,6 @@ main:focus-visible { outline: none; }
 }
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 1.25rem; }
-.mt-xl { margin-top: 1.5rem; }
 .mt-section { margin-top: 1.75rem; }
 .text-center { text-align: center; }
 .btn-row {
@@ -453,37 +452,6 @@ section + section { margin-top: 1.75rem; }
 /* Trisagion prayers */
 .prayer-block { margin: 1.25rem 0; }
 
-.prayer-lang-switch {
-  position: relative;
-}
-.prayer-lang-switch > input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-.lang-tabs {
-  display: none;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  font-family: var(--font-ui);
-}
-.lang-tabs label {
-  display: inline-block;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  background: var(--color-surface);
-}
-.prayer-lang-switch > input[type="radio"]:focus-visible + .lang-tabs label[for],
-.lang-tabs label:focus-within {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-}
-
 .prayer-copy {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
@@ -505,16 +473,20 @@ section + section { margin-top: 1.75rem; }
 }
 
 @media (max-width: 900px) {
-  .lang-tabs { display: flex; }
   .prayer-copy { grid-template-columns: 1fr; }
-  .prayer-lang-switch:has(input[value="it"]:checked) .lang-tabs label[data-lang-tab="it"],
-  .prayer-lang-switch:has(input[value="en"]:checked) .lang-tabs label[data-lang-tab="en"] {
-    background: var(--color-trinity);
-    color: #fff;
-    border-color: var(--color-trinity);
-  }
-  .prayer-lang-switch:has(input[value="it"]:checked) .prayer[lang="en"] { display: none; }
-  .prayer-lang-switch:has(input[value="en"]:checked) .prayer[lang="it"] { display: none; }
+}
+
+/* Off-screen textarea for clipboard fallback (no inline styles; CSP style-src-attr). */
+.copy-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  pointer-events: none;
 }
 
 .prayer {

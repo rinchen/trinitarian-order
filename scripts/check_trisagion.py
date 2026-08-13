@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Validate Trisagion forms and required Sanctus phrases in trisagion.html."""
+"""Validate Trisagion forms, Sanctus notes, and key Curia phrases in trisagion.html.
+
+This is a smoke / regression gate — not a full concordance with every source page.
+"""
 
 from __future__ import annotations
 
@@ -10,9 +13,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_HTML = ROOT / "trisagion.html"
-
-# Official Italian Part 2 uses "grazia" (upstream Curia wording); keep it.
-ALLOWED_ITALIAN_GRAZIA = True
 
 FORM_IDS = (
     "trisagion-en-short",
@@ -25,26 +25,38 @@ REQUIRED_PHRASES = {
     "trisagion-en-short": [
         "God of hosts",
         "Hail, Daughter of God the Father",
+        "repeated three times",
     ],
     "trisagion-en-long": [
         "Lord God of hosts",
         "Holy God, Holy Mighty One, Holy Immortal One",
+        "repeated nine times",
     ],
     "trisagion-it-short": [
-        "Dio dell",
+        "Dio dell'universo",
         "nuovo soffio del tuo amore",
+        "governa",
     ],
     "trisagion-it-long": [
-        "Dio dell",
+        "Dio dell'universo",
         "a Te grazia",
+        "a Te grazie",
+        "governa",
+        "Gen 1",
+        "Ap 4, 11",
+        "Fil 2, 11",
+        "Rm 8",
+        "Tu nostra speranza",
     ],
 }
 
 FORBIDDEN_EN = [
     "Make it that",
     "persevering coherence",
-    "God of Hosts.",  # prefer lowercase "hosts" as in Modern Long photo
+    "God of Hosts.",
 ]
+
+SOLEMN_MIN_LECTIONS = 18
 
 
 def extract_prayer(html: str, form_id: str) -> dict:
@@ -57,19 +69,23 @@ def extract_prayer(html: str, form_id: str) -> dict:
         raise ValueError(f"missing prayer-actions after #{form_id}")
     block = html[start:actions]
     pm = re.search(
-        rf'<div class="prayer" lang="(it|en)" data-lang="([^"]*)">(.*)',
+        r'<div class="prayer" lang="(it|en)" data-lang="([^"]*)">(.*)',
         block,
         re.DOTALL,
     )
     if not pm:
         raise ValueError(f"missing .prayer inside #{form_id}")
-    # Trim trailing closing divs of .prayer / .prayer-copy
     body = re.sub(r"</div>\s*$", "", pm.group(3)).strip()
     body = re.sub(r"</div>\s*$", "", body).strip()
     text = re.sub(r"<[^>]+>", " ", body)
     text = re.sub(r"\s+", " ", text).strip()
-    # Normalize curly apostrophe for phrase checks
-    text_norm = text.replace("\u2019", "'").replace("&rsquo;", "'")
+    text_norm = (
+        text.replace("\u2019", "'")
+        .replace("&rsquo;", "'")
+        .replace("&hellip;", "...")
+        .replace("&ldquo;", '"')
+        .replace("&rdquo;", '"')
+    )
     return {
         "lang": pm.group(1),
         "label": pm.group(2),
@@ -117,19 +133,16 @@ def check(html_path: Path) -> list[str]:
             if phrase not in text:
                 errors.append(f"{form_id}: missing required phrase: {phrase!r}")
 
-    # English must not calque Italian "Dio dell'universo" as Sanctus.
     for form_id in ("trisagion-en-short", "trisagion-en-long"):
         text = forms[form_id]["text"]
         if re.search(r"Holy,\s*Holy,\s*Holy[^.]{0,80}God of the universe", text, re.I):
             errors.append(f"{form_id}: English Sanctus must not say 'God of the universe'")
-        # Printed prayer text should use post-2011 Missal "hosts", not 2010 handbook alone.
         if "God of power and might" in text:
             errors.append(
                 f"{form_id}: prayer body should use 'God of hosts'; "
                 "keep 'God of power and might' only in the source note"
             )
 
-    # Page must prominently document the 2010 handbook alternative.
     if "God of power and might" not in html:
         errors.append("page must note 2010 handbook wording 'God of power and might'")
     if "2010" not in html or "2011" not in html:
@@ -147,21 +160,32 @@ def check(html_path: Path) -> list[str]:
     if "USA" not in html:
         errors.append("page must attribute the modern English longer form to USA use")
 
+    # Prefer corrected Italian spelling; reject Curia typo in our published text.
+    for form_id in ("trisagion-it-short", "trisagion-it-long"):
+        text = forms[form_id]["text"]
+        if re.search(r"crea e governo l", text):
+            errors.append(f"{form_id}: use 'governa' not Curia typo 'governo'")
+        if "spendore" in text:
+            errors.append(f"{form_id}: use 'splendore' not Curia typo 'spendore'")
+
     all_en = forms["trisagion-en-short"]["text"] + " " + forms["trisagion-en-long"]["text"]
     for bad in FORBIDDEN_EN:
         if bad in all_en:
             errors.append(f"English still contains forbidden string: {bad!r}")
 
     long_it = forms["trisagion-it-long"]["text"]
-    if "a Te grazia" in long_it and not ALLOWED_ITALIAN_GRAZIA:
-        errors.append('Italian solemn part 2 has "a Te grazia" (unexpected)')
     if "a Te grazia" not in long_it:
         errors.append(
             'Italian solemn form should retain published "a Te grazia" in part 2 '
             "(allowlisted official quirk)"
         )
+    # grazia should appear once (part 2); grazie elsewhere
+    if long_it.count("a Te grazia") != 1:
+        errors.append(
+            f"Italian solemn expected exactly one 'a Te grazia' "
+            f"(found {long_it.count('a Te grazia')})"
+        )
 
-    # Basic structure floors
     if forms["trisagion-en-short"]["counts"]["v"] < 3:
         errors.append("English short form too thin")
     if forms["trisagion-en-long"]["counts"]["v"] < 6:
@@ -170,10 +194,11 @@ def check(html_path: Path) -> list[str]:
         errors.append("Italian short form too thin")
     if forms["trisagion-it-long"]["counts"]["part"] < 5:
         errors.append("Italian solemn form missing expected parts")
-    if forms["trisagion-it-long"]["counts"]["lection"] < 3:
+    lections = forms["trisagion-it-long"]["counts"]["lection"]
+    if lections < SOLEMN_MIN_LECTIONS:
         errors.append(
-            "solemn Italian lection count too low: "
-            f"{forms['trisagion-it-long']['counts']['lection']}"
+            "solemn Italian lection count too low "
+            f"(need Curia Scripture apparatus): {lections} < {SOLEMN_MIN_LECTIONS}"
         )
 
     return errors
