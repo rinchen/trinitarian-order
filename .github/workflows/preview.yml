@@ -1,0 +1,56 @@
+name: Deploy PR previews
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+# Share with pages.yml writers to gh-pages.
+# Do not cancel in-progress deploys — a cancelled mid-push can leave
+# gh-pages inconsistent and pile up GitHub Pages builds.
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    # Same-repo PRs only — fork PRs must not write to gh-pages.
+    # Preview URLs share the production github.io origin; treat them as untrusted.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Stage public site
+        if: github.event.action != 'closed'
+        run: |
+          chmod +x scripts/stage_site.sh
+          ./scripts/stage_site.sh
+
+      # Absolute /trinitarian-order/… nav/favicon links must target the preview subpath.
+      - name: Rewrite base path for preview
+        if: github.event.action != 'closed'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python3 scripts/rewrite_preview_base.py \
+            --root _site \
+            --old /trinitarian-order/ \
+            --new "/trinitarian-order/pr-preview/pr-${PR_NUMBER}/"
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
+        with:
+          source-dir: _site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+          qr-code: true

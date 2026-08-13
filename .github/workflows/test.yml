@@ -1,0 +1,55 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install Python lint deps
+        run: python3 -m pip install --upgrade pip -r requirements-dev.txt
+
+      - name: Install JS lint deps
+        run: npm ci
+
+      - name: Ruff
+        run: |
+          ruff check scripts tests
+          ruff format --check scripts tests
+
+      - name: ESLint / Stylelint / HTMLHint
+        run: npm run lint
+
+      - name: Compile scripts
+        run: python3 -m py_compile scripts/*.py tests/*.py
+
+      - name: Trisagion check
+        run: python3 scripts/check_trisagion.py
+
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Stage site smoke
+        run: |
+          chmod +x scripts/stage_site.sh
+          ./scripts/stage_site.sh
+          test -f _site/index.html
+          test -f _site/assets/img/favicon-32x32.png
+          test -f _site/assets/img/trinitarian-church-rome.jpg

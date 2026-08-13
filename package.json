@@ -1,0 +1,20 @@
+{
+  "name": "trinitarian-order",
+    "private": true,
+  "type": "module",
+  "description": "Static site lint tooling (no runtime build)",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+    "lint:js": "eslint assets/js",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint:html": "htmlhint \"*.html\" --config .htmlhintrc"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "htmlhint": "^1.6.3",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^39.0.0"
+  }
+}

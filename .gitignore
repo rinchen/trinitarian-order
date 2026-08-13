@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+/.venv
+/venv
+/dist
+/build
+/.coverage
+/.pytest_cache
+/_site
+/node_modules
+.DS_Store
+*.bak-*
+assets/img/*.tmp
