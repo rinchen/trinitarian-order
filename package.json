@@ -10,7 +10,7 @@
     "lint:html": "htmlhint \"*.html\" --config .htmlhintrc"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
     "htmlhint": "^1.6.3",
