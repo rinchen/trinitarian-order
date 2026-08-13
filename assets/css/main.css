@@ -578,6 +578,31 @@ section + section { margin-top: 1.75rem; }
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow);
 }
+.figure--book {
+  max-width: 14rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.figure--book img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+.figure--with-text {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) 1fr;
+  gap: 1.25rem 1.5rem;
+  align-items: start;
+  max-width: 40rem;
+  margin: 1.25rem 0;
+}
+.figure--with-text .figure--book {
+  margin: 0;
+}
+.figure--with-text > div { min-width: 0; }
+@media (max-width: 560px) {
+  .figure--with-text { grid-template-columns: 1fr; }
+  .figure--with-text .figure--book { max-width: 11rem; margin: 0 auto; }
+}
 .figure figcaption,
 .page-banner figcaption,
 .caption {
