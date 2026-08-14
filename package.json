@@ -1,6 +1,6 @@
 {
   "name": "trinitarian-order",
-    "private": true,
+  "private": true,
   "type": "module",
   "description": "Static site lint tooling (no runtime build)",
   "scripts": {
@@ -10,11 +10,11 @@
     "lint:html": "htmlhint \"*.html\" --config .htmlhintrc"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "eslint": "^9.33.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
     "globals": "^16.3.0",
     "htmlhint": "^1.6.3",
-    "stylelint": "^16.23.1",
-    "stylelint-config-standard": "^39.0.0"
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard": "^40.0.0"
   }
 }
