@@ -13,7 +13,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["index.html", "about.html", "feast-days.html", "trisagion.html", "join.html"]
-NAV_HREFS = ["index.html", "about.html", "feast-days.html", "trisagion.html", "join.html"]
+NAV_HREFS = [
+    "index.html",
+    "about.html",
+    "feast-days.html",
+    "trisagion.html",
+    "join.html",
+    "https://github.com/rinchen/trinitarian-order",
+]
 CSP_REQUIRED = [
     "default-src 'self'",
     "script-src 'self'",

@@ -157,6 +157,24 @@ nav.site-nav a:focus-visible,
   border-radius: 2px;
 }
 
+.site-nav-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  line-height: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  nav.site-nav a.site-nav-github:hover { color: var(--color-text); }
+}
+nav.site-nav a.site-nav-github:focus-visible {
+  color: var(--color-text);
+}
+.site-nav-github-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
 /* Mobile nav: details/summary menu */
 .nav-toggle {
   display: none;
