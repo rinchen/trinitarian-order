@@ -32,17 +32,15 @@
     ta.setAttribute('readonly', '');
     ta.className = 'copy-fallback';
     document.body.appendChild(ta);
-    var ok = false;
     try {
       ta.focus();
       ta.setSelectionRange(0, text.length);
-      ok = document.execCommand('copy');
+      return document.execCommand('copy');
     } catch (_err) {
-      ok = false;
+      return false;
     } finally {
       if (ta.parentNode) document.body.removeChild(ta);
     }
-    return ok;
   }
 
   function canUseAsyncClipboard() {
