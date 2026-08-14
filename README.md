@@ -124,6 +124,21 @@ preview well for social crawlers that require absolute URLs.
 
 ## Content attribution
 
-Site code is MIT. The Order's texts (history, feast days, Trisagion) remain the
-property of the Order of the Most Holy Trinity and of the Captives and are used
-with attribution. See `LICENSE`. Image licenses: `assets/img/SOURCES.md`.
+Site code (templates, scripts, and other authored software) is licensed under
+the MIT License — see `LICENSE`.
+
+The textual and devotional content on this site — historical facts, the
+liturgical calendar (feast days), and the Trinitarian Trisagion — is the
+property of the Order of the Most Holy Trinity and of the Captives (O.S.S.T.)
+and is reproduced here for informational purposes with attribution. It is not
+licensed under MIT and remains under the Order's ownership. This site is
+informational and is not an official publication of the Order. Official
+sources:
+
+- Order of the Most Holy Trinity — Curia Generalizia: https://www.trinitari.org/
+- Trinitarian liturgical calendar: https://www.trinitari.org/calendario-liturgico-feste/
+- Trisagion (Devozioni trinitarie): https://www.trinitari.org/devozioni/
+- U.S. Province: https://trinitarians.org/
+- Third Order: https://www.thirdordertrinitarians.org/
+
+Image licenses: `assets/img/SOURCES.md`.
