@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Trinitarian Cross of the Two Colors">
-  <title>Trinitarian Cross of the Two Colors</title>
-  <!-- Greek cross: blue horizontal bar, red vertical bar on top (equal arms). -->
-  <rect width="1000" height="1000" fill="#ffffff"/>
-  <rect width="1000" height="200" y="400" fill="#003380"/>
-  <rect width="200" height="1000" x="400" fill="#aa0000"/>
-</svg>
