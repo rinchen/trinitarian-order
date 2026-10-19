@@ -12,9 +12,9 @@ This site is **not** an official publication of the Order.
   pars*, the Cross of the Two Colors, the Order and the wider Trinitarian Family,
   and *The Trinitarian Way* English handbook.
 - **History** (`history.html`): a dated timeline from the 1193 vision and
-  Cerfroid to the present, plus sections on medieval redemptions, the 1599
-  reform, suppression and restoration, the United States, and San Tommaso in
-  Formis.
+  Cerfroid to the present, plus sections on medieval redemptions (including
+  Miguel de Cervantes), the 1599 reform, suppression and restoration, the
+  United States, and San Tommaso in Formis.
 - **Family** (`family.html`): the distinction between the male Order and the
   Trinitarian Family, contemplative nuns, six sister congregations, the Oblates,
   the Hermitesses, and lay Trinitarians.

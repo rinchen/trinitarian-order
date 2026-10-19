@@ -243,6 +243,13 @@ class TestSiteCore(unittest.TestCase):
             ):
                 self.assertNotIn(bad, html, f"{name} still contains {bad!r}")
 
+    def test_history_mentions_cervantes(self):
+        html = (ROOT / "history.html").read_text(encoding="utf-8")
+        self.assertIn("Miguel de Cervantes Saavedra", html)
+        self.assertIn("Don Quixote", html)
+        self.assertIn("Juan Gil", html)
+        self.assertIn("1580", html)
+
     def test_feast_page_has_today_and_ics(self):
         html = (ROOT / "feast-days.html").read_text(encoding="utf-8")
         self.assertIn('id="today-note"', html)
