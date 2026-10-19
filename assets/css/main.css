@@ -44,7 +44,6 @@
   --radius: 10px;
   --shadow: 0 1px 3px rgb(43 39 35 / 8%), 0 4px 16px rgb(43 39 35 / 6%);
   --page-gutter: clamp(0.75rem, 2.8vw, 2.5rem);
-  --reading-width: min(72ch, 100%);
   --max-width: min(92rem, 100%);
   --header-height: 3.5rem;
   --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -239,7 +238,7 @@ main:focus-visible { outline: none; }
   padding: 0.9rem 1rem 1rem 1.1rem;
   border-left: 4px solid var(--color-gold);
   background: var(--color-surface-2);
-  max-width: var(--reading-width);
+  max-width: none;
 }
 .source-note__title {
   font-family: var(--font-display);
@@ -277,7 +276,7 @@ main:focus-visible { outline: none; }
   border-radius: 12px;
   box-shadow: var(--shadow);
   padding: clamp(1.1rem, 2.8vw, 2rem);
-  max-width: 60rem;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 .card--wide {
@@ -312,7 +311,7 @@ main:focus-visible { outline: none; }
   margin: 0 0 0.5rem;
 }
 .hero .lead {
-  max-width: 60ch;
+  max-width: none;
   margin-inline: auto;
 }
 .gold-rule {
@@ -579,7 +578,7 @@ section + section { margin-top: 1.75rem; }
 .prayer .line {
   margin: 0.35rem 0;
   line-height: 1.8;
-  max-width: 62ch;
+  max-width: none;
 }
 .prayer .oration { margin: 0.9rem 0 1.1rem; }
 .prayer .oration .line { margin: 0.15rem 0; }
@@ -589,7 +588,7 @@ section + section { margin-top: 1.75rem; }
   font-size: 0.92rem;
   color: var(--color-text-muted);
   line-height: 1.65;
-  max-width: 62ch;
+  max-width: none;
   padding-left: 0.75rem;
   border-left: 2px solid var(--color-border);
 }
@@ -803,7 +802,7 @@ section + section { margin-top: 1.75rem; }
 
 /* Page header used by the content pages added in the 2026 expansion. */
 .page-header {
-  max-width: 52rem;
+  max-width: none;
   margin: 0 auto 1.5rem;
   text-align: center;
 }
@@ -812,7 +811,7 @@ section + section { margin-top: 1.75rem; }
 .page-header .lead { margin-inline: auto; }
 
 /* Long-form prose blocks. */
-.prose { max-width: 68ch; }
+.prose { max-width: none; }
 .prose h2 { margin-top: 1.75rem; }
 .prose h3 { margin-top: 1.25rem; }
 .prose p + p { margin-top: 0.9rem; }
@@ -825,7 +824,7 @@ section + section { margin-top: 1.75rem; }
   border-left: 4px solid var(--color-gold);
   background: var(--color-surface-2);
   border-radius: 0 var(--radius) var(--radius) 0;
-  max-width: 68ch;
+  max-width: none;
 }
 
 .callout h2,
@@ -840,7 +839,7 @@ section + section { margin-top: 1.75rem; }
   border-radius: var(--radius);
   font-size: 0.95rem;
   color: var(--color-text-muted);
-  max-width: 68ch;
+  max-width: none;
 }
 
 .stat-grid {
@@ -875,12 +874,12 @@ section + section { margin-top: 1.75rem; }
 /* Source lists with explicit official / secondary labels. */
 .source-block {
   margin: 2.25rem auto 0;
-  max-width: 60rem;
+  max-width: var(--max-width);
   padding-top: 1.25rem;
   border-top: 1px solid var(--color-border);
 }
 .source-block .source-list {
-  max-width: 68ch;
+  max-width: none;
 }
 
 .source-list {
