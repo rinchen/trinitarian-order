@@ -4,18 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1f3a6e" />
-  <meta name="description" content="The liturgical calendar (proper) of the Trinitarian Order: the feast days observed by members, from The Trinitarian Way handbook." />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; form-action 'none'" />
+  <meta name="description" content="The proper liturgical calendar of the Trinitarian Order: feast days, ranks, notes, a today marker, and a downloadable calendar file." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; font-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; form-action 'none'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://rinchen.github.io/trinitarian-order/feast-days.html" />
+  <meta property="og:site_name" content="Trinitarian Order (O.S.S.T.)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Feast Days | Trinitarian Order (O.S.S.T.)" />
-  <meta property="og:image" content="assets/img/trinitarian-cross.svg" />
+  <meta property="og:description" content="The proper liturgical calendar of the Trinitarian Order: feast days, ranks, notes, a today marker, and a downloadable calendar file." />
+  <meta property="og:url" content="https://rinchen.github.io/trinitarian-order/feast-days.html" />
+  <meta property="og:image" content="https://rinchen.github.io/trinitarian-order/assets/img/trinitarian-cross.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Feast Days | Trinitarian Order (O.S.S.T.)" />
+  <meta name="twitter:description" content="The proper liturgical calendar of the Trinitarian Order: feast days, ranks, notes, a today marker, and a downloadable calendar file." />
+  <meta name="twitter:image" content="https://rinchen.github.io/trinitarian-order/assets/img/trinitarian-cross.svg" />
   <title>Feast Days | Trinitarian Order (O.S.S.T.)</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="assets/img/favicon-32x32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/img/favicon-32x32.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/source-serif-4-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
@@ -31,6 +40,9 @@
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="history.html">History</a>
+        <a href="family.html">Family</a>
+        <a href="saints.html">Saints</a>
         <a href="feast-days.html" aria-current="page">Feast Days</a>
         <a href="trisagion.html">Trisagion</a>
         <a href="join.html">Join</a>
@@ -60,12 +72,23 @@
   </header>
 
   <main id="main-content" tabindex="-1">
-    <div class="card">
-      <p class="eyebrow">Liturgical Calendar</p>
-      <h1>Feast Days of the Trinitarian Order</h1>
-      <p class="lead">The Order&rsquo;s proper calendar: the feast days members observe. The English handbook <a href="about.html#trinitarian-way"><em>The Trinitarian Way</em></a> reproduces this calendar. July has no proper feast.</p>
 
-      <table class="feast-table">
+    <div class="card">
+      <div class="page-header">
+        <p class="eyebrow">Liturgical Calendar</p>
+        <h1>Feast Days of the Trinitarian Order</h1>
+        <p class="lead">The Order&rsquo;s proper calendar: the feast days members observe. The English handbook <a href="about.html#trinitarian-way"><em>The Trinitarian Way</em></a> reproduces this calendar. July has no proper feast.</p>
+      </div>
+
+      <p class="today-note" id="today-note" role="status">The current date is checked in your browser. Today&rsquo;s Trinitarian feast will be highlighted below.</p>
+
+      <div class="calendar-actions no-print">
+        <a class="btn btn--ghost" href="assets/feast-days.ics" download>Download calendar (.ics)</a>
+        <button class="btn btn--ghost" type="button" data-print>Print this calendar</button>
+      </div>
+
+      <table class="feast-table" id="calendar">
+        <caption>Proper calendar of the Order of the Most Holy Trinity and of the Captives</caption>
         <thead>
           <tr>
             <th scope="col">Date</th>
@@ -74,33 +97,43 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="date" data-label="Date">January 7</td><td data-label="Feast">St. John de Ribera, Bishop (of the Confraternity of the Most Holy Trinity)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">January 13</td><td data-label="Feast">Blessed Frances of the Incarnation, Virgin and Martyr</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">January 22</td><td data-label="Feast">St. Vincent Pallotti, Priest (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">January 28</td><td data-label="Feast">St. Agnes, Virgin and Martyr, <strong>principal patroness of the Order</strong></td><td class="rank" data-label="Rank">Feast</td></tr>
-          <tr><td class="date" data-label="Date">February 4</td><td data-label="Feast">Blessed Elisabetta Canori Mora, Mother of the Family (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">February 14</td><td data-label="Feast">St. John Baptist of the Conception, Priest, Reformer of the Order</td><td class="rank" data-label="Rank">Feast</td></tr>
-          <tr><td class="date" data-label="Date">March 24</td><td data-label="Feast">Blessed Diego José de Cádiz, Capuchin Priest (Confraternity of the Most Holy Trinity)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">April 16</td><td data-label="Feast">St. Benedict Joseph Labré (of the Confraternity of the Most Holy Trinity)</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">May 7</td><td data-label="Feast">Translation of the Relics of St. John de Matha</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">May 11</td><td data-label="Feast">Blessed Dominic Iturrate of the Blessed Sacrament, Priest</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">June 8</td><td data-label="Feast">St. Michael of the Saints, Priest, Protector of Trinitarian Youth</td><td class="rank" data-label="Rank">Feast</td></tr>
-          <tr><td class="date" data-label="Date">June 9</td><td data-label="Feast">Blessed Anna Maria Taigi, Mother of the Family, Patroness of the Trinitarian Laity</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">July</td><td data-label="Feast">No proper feast</td><td class="rank" data-label="Rank">N/A</td></tr>
-          <tr><td class="date" data-label="Date">August 12</td><td data-label="Feast">Blessed Innocent XI, Pope (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">August 25</td><td data-label="Feast">St. Louis, King of France (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">September 12</td><td data-label="Feast">Holy Name of Mary</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">September 24</td><td data-label="Feast">Blessed Mark Criado, Priest and Martyr</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">September 28</td><td data-label="Feast">St. Simon de Rojas, Priest</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">October 8</td><td data-label="Feast">Blessed Virgin Mary of Good Remedy, <strong>patroness of the Order</strong></td><td class="rank" data-label="Rank">Solemnity</td></tr>
-          <tr><td class="date" data-label="Date">October 23</td><td data-label="Feast">Most Holy Redeemer</td><td class="rank" data-label="Rank">Feast</td></tr>
-          <tr><td class="date" data-label="Date">November 4</td><td data-label="Feast">St. Felix de Valois, Priest, Co-founder of the Order</td><td class="rank" data-label="Rank">Memorial</td></tr>
-          <tr><td class="date" data-label="Date">November 6</td><td data-label="Feast">Blessed Mariano of St. Joseph and Companions, Martyrs</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
-          <tr><td class="date" data-label="Date">November 13</td><td data-label="Feast">All Saints of the Order of the Most Holy Trinity</td><td class="rank" data-label="Rank">Feast</td></tr>
-          <tr><td class="date" data-label="Date">November 14</td><td data-label="Feast">Commemoration of all the Deceased of the Order of the Most Holy Trinity</td><td class="rank" data-label="Rank">Commemoration</td></tr>
-          <tr><td class="date" data-label="Date">December 17</td><td data-label="Feast">St. John de Matha, Priest, <strong>Founder of the Order</strong></td><td class="rank" data-label="Rank">Solemnity</td></tr>
+          <tr data-month="1" data-day="7" data-feast="St. John de Ribera"><td class="date" data-label="Date">January 7</td><td data-label="Feast"><a href="saints.html#patrons">St. John de Ribera</a>, Bishop (of the Confraternity of the Most Holy Trinity)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="1" data-day="13" data-feast="Blessed Frances of the Incarnation"><td class="date" data-label="Date">January 13</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Frances of the Incarnation</a>, Virgin and Martyr</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="1" data-day="22" data-feast="St. Vincent Pallotti"><td class="date" data-label="Date">January 22</td><td data-label="Feast"><a href="saints.html#patrons">St. Vincent Pallotti</a>, Priest (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="1" data-day="28" data-feast="St. Agnes"><td class="date" data-label="Date">January 28</td><td data-label="Feast"><a href="saints.html#patrons">St. Agnes</a>, Virgin and Martyr, <strong>principal patroness of the Order</strong></td><td class="rank rank--feast" data-label="Rank">Feast</td></tr>
+          <tr data-month="2" data-day="4" data-feast="Blessed Elisabetta Canori Mora"><td class="date" data-label="Date">February 4</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Elisabetta Canori Mora</a>, Mother of the Family (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr data-month="2" data-day="14" data-feast="St. John Baptist of the Conception"><td class="date" data-label="Date">February 14</td><td data-label="Feast"><a href="saints.html#john-baptist">St. John Baptist of the Conception</a>, Priest, Reformer of the Order</td><td class="rank rank--feast" data-label="Rank">Feast</td></tr>
+          <tr data-month="3" data-day="24" data-feast="Blessed Diego Jose de Cadiz"><td class="date" data-label="Date">March 24</td><td data-label="Feast"><a href="saints.html#patrons">Blessed Diego Jos&eacute; de C&aacute;diz</a>, Capuchin Priest (Confraternity of the Most Holy Trinity)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="4" data-day="16" data-feast="St. Benedict Joseph Labre"><td class="date" data-label="Date">April 16</td><td data-label="Feast"><a href="saints.html#patrons">St. Benedict Joseph Labr&eacute;</a> (of the Confraternity of the Most Holy Trinity)</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr data-month="5" data-day="7" data-feast="Translation of the Relics of St. John de Matha"><td class="date" data-label="Date">May 7</td><td data-label="Feast">Translation of the Relics of <a href="saints.html#john-de-matha">St. John de Matha</a></td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="5" data-day="11" data-feast="Blessed Dominic Iturrate"><td class="date" data-label="Date">May 11</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Dominic Iturrate of the Blessed Sacrament</a>, Priest</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="6" data-day="8" data-feast="St. Michael of the Saints"><td class="date" data-label="Date">June 8</td><td data-label="Feast"><a href="saints.html#michael-of-the-saints">St. Michael of the Saints</a>, Priest, Protector of Trinitarian Youth</td><td class="rank rank--feast" data-label="Rank">Feast</td></tr>
+          <tr data-month="6" data-day="9" data-feast="Blessed Anna Maria Taigi"><td class="date" data-label="Date">June 9</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Anna Maria Taigi</a>, Mother of the Family, Patroness of the Trinitarian Laity</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr class="no-feast"><td class="date" data-label="Date">July</td><td data-label="Feast">No proper feast</td><td class="rank" data-label="Rank">N/A</td></tr>
+          <tr data-month="8" data-day="12" data-feast="Blessed Innocent XI"><td class="date" data-label="Date">August 12</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Innocent XI</a>, Pope (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="8" data-day="25" data-feast="St. Louis, King of France"><td class="date" data-label="Date">August 25</td><td data-label="Feast"><a href="saints.html#patrons">St. Louis</a>, King of France (Trinitarian Tertiary)</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr data-month="9" data-day="12" data-feast="Holy Name of Mary"><td class="date" data-label="Date">September 12</td><td data-label="Feast">Holy Name of Mary</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr data-month="9" data-day="24" data-feast="Blessed Mark Criado"><td class="date" data-label="Date">September 24</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Mark Criado</a>, Priest and Martyr</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="9" data-day="28" data-feast="St. Simon de Rojas"><td class="date" data-label="Date">September 28</td><td data-label="Feast"><a href="saints.html#simon-de-rojas">St. Simon de Rojas</a>, Priest</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr data-month="10" data-day="8" data-feast="Our Lady of Good Remedy"><td class="date" data-label="Date">October 8</td><td data-label="Feast"><a href="saints.html#patrons">Blessed Virgin Mary of Good Remedy</a>, <strong>patroness of the Order</strong></td><td class="rank rank--solemnity" data-label="Rank">Solemnity</td></tr>
+          <tr data-month="10" data-day="23" data-feast="Most Holy Redeemer"><td class="date" data-label="Date">October 23</td><td data-label="Feast">Most Holy Redeemer</td><td class="rank rank--feast" data-label="Rank">Feast</td></tr>
+          <tr data-month="11" data-day="4" data-feast="St. Felix de Valois"><td class="date" data-label="Date">November 4</td><td data-label="Feast"><a href="saints.html#felix-de-valois">St. Felix de Valois</a>, Priest, Co-founder of the Order</td><td class="rank" data-label="Rank">Memorial</td></tr>
+          <tr data-month="11" data-day="6" data-feast="Blessed Mariano of St. Joseph and Companions"><td class="date" data-label="Date">November 6</td><td data-label="Feast"><a href="saints.html#blesseds">Blessed Mariano of St. Joseph and Companions</a>, Martyrs</td><td class="rank" data-label="Rank">Optional Memorial</td></tr>
+          <tr data-month="11" data-day="13" data-feast="All Saints of the Order"><td class="date" data-label="Date">November 13</td><td data-label="Feast"><a href="saints.html#saints">All Saints of the Order of the Most Holy Trinity</a></td><td class="rank rank--feast" data-label="Rank">Feast</td></tr>
+          <tr data-month="11" data-day="14" data-feast="Commemoration of all the Deceased of the Order"><td class="date" data-label="Date">November 14</td><td data-label="Feast">Commemoration of all the Deceased of the Order of the Most Holy Trinity</td><td class="rank" data-label="Rank">Commemoration</td></tr>
+          <tr data-month="12" data-day="17" data-feast="St. John de Matha"><td class="date" data-label="Date">December 17</td><td data-label="Feast"><a href="saints.html#john-de-matha">St. John de Matha</a>, Priest, <strong>Founder of the Order</strong></td><td class="rank rank--solemnity" data-label="Rank">Solemnity</td></tr>
         </tbody>
       </table>
+
+      <section class="prose">
+        <h2>Ways to read the calendar</h2>
+        <p>The proper calendar can be read in three overlapping groups:</p>
+        <ul>
+          <li><strong>The Trinity and the Redeemer:</strong> the solemnities and feasts that make the Order&rsquo;s charism explicit, especially Our Lady of Good Remedy (Oct 8), the Most Holy Redeemer (Oct 23), All Saints of the Order (Nov 13), and St. John de Matha (Dec 17).</li>
+          <li><strong>Founders, reformers, and patrons:</strong> St. John de Matha, St. Felix de Valois, St. John Baptist of the Conception, St. Agnes, and the patrons associated with the Trinitarian confraternities.</li>
+          <li><strong>Saints, blesseds, and commemorations:</strong> the canonized and beatified members of the Order and Family, the Holy Name of Mary, and the November commemoration of the deceased.</li>
+        </ul>
+      </section>
 
       <section class="mt-section">
         <h2>Rank key</h2>
@@ -111,19 +144,54 @@
           <li><strong>Optional Memorial</strong>: may be celebrated or omitted at choice.</li>
           <li><strong>Commemoration</strong>: Nov 14, prayers for the deceased of the Order.</li>
         </ul>
-        <p class="fine-print">Source: Order of the Most Holy Trinity (Curia Generalizia), official liturgical calendar (<a href="https://www.trinitari.org/calendario-liturgico-feste/" target="_blank" rel="noopener noreferrer">trinitari.org/calendario-liturgico-feste</a>), cross-checked with the Order&rsquo;s English <em>Liturgy of the Hours: Proper of the Order</em>. The handbook <a href="about.html#trinitarian-way"><em>The Trinitarian Way</em></a> reproduces this same calendar.</p>
       </section>
+
+      <section class="prose">
+        <h2>Notes on the calendar</h2>
+        <p>The calendar is the Order&rsquo;s proper calendar, not the general Roman calendar. Some entries honor people who were members of Trinitarian confraternities or tertiaries rather than friars, and the calendar marks them accordingly.</p>
+        <p>The Curia&rsquo;s summary table and its individual detail pages differ for a few entries. For example, the detail page for April 16 calls St. Benedict Joseph Labr&eacute; an optional memorial, while the summary table lists a memorial; the detail page for September 24 calls Blessed Mark Criado a memorial, while the summary table lists an optional memorial. This page follows the summary table and flags the difference here rather than silently harmonizing it.</p>
+        <p>The calendar is a liturgical text. Local calendars, religious provinces, and particular churches may add celebrations or keep different ranks. Consult the current proper of the Order and your local ordinary for authoritative liturgical use.</p>
+      </section>
+
     </div>
+
+      <section class="source-block" id="sources">
+        <h2>Sources for this page</h2>
+        <ul class="source-list">
+          <li><span class="source-tag source-tag--official">Official</span> <a href="https://www.trinitari.org/calendario-liturgico-feste/" target="_blank" rel="noopener noreferrer">Curia Generalizia, Calendario liturgico, Feste</a> (summary table and detail pages).</li>
+          <li><span class="source-tag source-tag--official">Official</span> <a href="https://www.trinitari.org/santi-trinitari/" target="_blank" rel="noopener noreferrer">Curia Generalizia, Trinitarian saints and blesseds</a>.</li>
+          <li><span class="source-tag source-tag--official">Official</span> Order of the Most Holy Trinity, <em>Liturgy of the Hours: Proper of the Order</em> (English edition).</li>
+          <li><span class="source-tag source-tag--official">Official</span> <em>The Trinitarian Way</em> (English handbook, 2010), calendar section.</li>
+        </ul>
+
+        <p class="fine-print mt-sm">Items marked <strong>Secondary</strong> are academic or reference works, not official publications of the Order. Official texts are normative where they differ.</p>
+      </section>
   </main>
 
   <footer class="site-footer">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="history.html">History</a>
+      <a href="family.html">Family</a>
+      <a href="saints.html">Saints</a>
+      <a href="feast-days.html">Feast Days</a>
+      <a href="trisagion.html">Trisagion</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="sources.html">Sources</a>
+      <a href="https://github.com/rinchen/trinitarian-order" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
     <p>An informational site about the Trinitarian Order. Not an official publication of the Order.</p>
-    <p>Calendar attributed to the Order of the Most Holy Trinity and of the Captives; see <a href="about.html#sources">sources</a>.</p>
+    <p><strong>Official</strong> sources are publications of the Order or the Holy See. <strong>Secondary</strong> sources are independent academic or reference works, included for context; they are not official publications of the Order.</p>
+    <p class="fine-print">Last updated 19 October 2026. Corrections are welcome via <a href="https://github.com/rinchen/trinitarian-order/issues" target="_blank" rel="noopener noreferrer">GitHub issues</a>. Image licenses: <a href="assets/img/SOURCES.md">assets/img/SOURCES.md</a>.</p>
   </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">&uarr;</button>
 
   <script src="assets/js/site-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
+  <script src="assets/js/feast-today.js" defer></script>
+  <script src="assets/js/print-page.js" defer></script>
 </body>
 </html>
