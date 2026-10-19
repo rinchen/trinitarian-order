@@ -9,7 +9,7 @@ on:
       - closed
 
 # Share with pages.yml writers to gh-pages.
-# Do not cancel in-progress deploys — a cancelled mid-push can leave
+# Do not cancel in-progress deploys: a cancelled mid-push can leave
 # gh-pages inconsistent and pile up GitHub Pages builds.
 concurrency:
   group: gh-pages
@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   deploy-preview:
-    # Same-repo PRs only — fork PRs must not write to gh-pages.
+    # Same-repo PRs only: fork PRs must not write to gh-pages.
     # Preview URLs share the production github.io origin; treat them as untrusted.
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest

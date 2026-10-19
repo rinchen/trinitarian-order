@@ -51,5 +51,11 @@ jobs:
           chmod +x scripts/stage_site.sh
           ./scripts/stage_site.sh
           test -f _site/index.html
+          test -f _site/history.html
+          test -f _site/sources.html
+          test -f _site/404.html
+          test -f _site/sitemap.xml
+          test -f _site/assets/feast-days.ics
+          test -f _site/assets/fonts/outfit-400.woff2
           test -f _site/assets/img/favicon-32x32.png
           test -f _site/assets/img/trinitarian-church-rome.jpg

@@ -26,15 +26,18 @@ def rewrite_tree(root: Path, old: str, new: str, exts: set[str] | None = None) -
     # For old=/trinitarian-order/ and new=/trinitarian-order/pr-preview/pr-N/,
     # skip …/trinitarian-order/pr-preview/…
     escaped = re.escape(old)
+    # Keep production absolute URLs (canonical and Open Graph metadata) stable
+    # when the staged copy is rewritten for a preview subpath.
+    production = r"(?<!https://rinchen\.github\.io)"
     if new.startswith(old):
         rest = new[len(old) :]
         first = rest.split("/", 1)[0]
         if first:
-            pattern = re.compile(escaped + r"(?!" + re.escape(first) + r")")
+            pattern = re.compile(production + escaped + r"(?!" + re.escape(first) + r")")
         else:
-            pattern = re.compile(escaped)
+            pattern = re.compile(production + escaped)
     else:
-        pattern = re.compile(escaped)
+        pattern = re.compile(production + escaped)
 
     rewritten: list[str] = []
     for path in root.rglob("*"):

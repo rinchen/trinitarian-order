@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate Trisagion forms, Sanctus notes, and key Curia phrases in trisagion.html.
 
-This is a smoke / regression gate — not a full concordance with every source page.
+This is a smoke / regression gate, not a full concordance with every source page.
 """
 
 from __future__ import annotations
