@@ -1,3 +1,28 @@
+/* Self-hosted variable fonts (SIL Open Font License; see assets/fonts). */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('../fonts/cormorant-garamond-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/source-serif-4-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/outfit-400.woff2') format('woff2');
+}
+
 :root {
   color-scheme: light;
   --color-bg: #f6f1e7;
@@ -135,12 +160,12 @@ body > header a {
 nav.site-nav {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 11px;
   flex-wrap: wrap;
 }
 nav.site-nav a {
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-family: var(--font-ui);
 }
 nav.site-nav a[aria-current="page"] {
@@ -191,25 +216,6 @@ nav.site-nav a.site-nav-github:focus-visible {
 .nav-toggle:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
-}
-
-@media (max-width: 640px) {
-  .wrap { flex-wrap: nowrap; }
-  .nav-toggle { display: inline-block; margin-left: auto; }
-  nav.site-nav {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 0.25rem 0 0.5rem;
-  }
-  .wrap.is-nav-open { flex-wrap: wrap; }
-  .wrap.is-nav-open nav.site-nav { display: flex; }
-  nav.site-nav a {
-    padding: 0.55rem 0.25rem;
-    border-top: 1px solid var(--color-border);
-  }
 }
 
 /* Main */
@@ -377,7 +383,7 @@ section + section { margin-top: 1.75rem; }
 /* Quick-nav cards */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
   margin-top: 1.25rem;
 }
@@ -402,12 +408,19 @@ section + section { margin-top: 1.75rem; }
   margin-bottom: 0.35rem;
 }
 .card-link .t {
+  display: block;
   font-family: var(--font-display);
   font-size: 1.35rem;
   color: var(--color-trinity);
   font-weight: 600;
+  margin-bottom: 0.2rem;
 }
-.card-link .d { color: var(--color-text-muted); font-size: 0.95rem; margin-top: 0.3rem; }
+.card-link .d {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
 @media (hover: hover) and (pointer: fine) {
   .card-link:hover {
     border-color: var(--color-gold);
@@ -431,6 +444,15 @@ section + section { margin-top: 1.75rem; }
   border-bottom: 1px solid var(--color-border);
   vertical-align: top;
 }
+.feast-table caption {
+  display: block;
+  caption-side: top;
+  padding: 0 0 0.6rem;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
 .feast-table thead th {
   background: var(--color-trinity);
   color: #fff;
@@ -446,6 +468,12 @@ section + section { margin-top: 1.75rem; }
   font-size: 0.85rem;
   color: var(--color-text-muted);
   font-style: italic;
+}
+.feast-table .rank--solemnity,
+.feast-table .rank--feast {
+  color: var(--color-trinity);
+  font-style: normal;
+  font-weight: 600;
 }
 @media (max-width: 560px) {
   .feast-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
@@ -768,3 +796,382 @@ section + section { margin-top: 1.75rem; }
   .back-to-top:hover { background: var(--color-trinity-hover); }
 }
 .back-to-top:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* --------------------------------------------------------------------------
+   Expanded site components
+   -------------------------------------------------------------------------- */
+
+/* Page header used by the content pages added in the 2026 expansion. */
+.page-header {
+  max-width: 52rem;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.page-header h1 { margin-bottom: 0.5rem; }
+.page-header .lead { margin-inline: auto; }
+
+/* Long-form prose blocks. */
+.prose { max-width: 68ch; }
+.prose h2 { margin-top: 1.75rem; }
+.prose h3 { margin-top: 1.25rem; }
+.prose p + p { margin-top: 0.9rem; }
+.prose ul,
+.prose ol { margin-top: 0.75rem; }
+
+.callout {
+  margin: 1.35rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--color-gold);
+  background: var(--color-surface-2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  max-width: 68ch;
+}
+
+.callout h2,
+.callout h3 { margin-top: 0; }
+.callout p:last-child { margin-bottom: 0; }
+
+.note {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 68ch;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.stat {
+  padding: 1rem 1.1rem;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--color-trinity);
+}
+
+.stat span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Source lists with explicit official / secondary labels. */
+.source-block {
+  margin: 2.25rem auto 0;
+  max-width: 60rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+.source-block .source-list {
+  max-width: 68ch;
+}
+
+.source-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.source-list li {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.source-tag {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.05rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid currentcolor;
+  font-family: var(--font-ui);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  vertical-align: 0.08em;
+}
+
+.source-tag--official { color: var(--color-trinity); background: #eef2fa; }
+.source-tag--secondary { color: #6b4b18; background: #fbf4e4; }
+
+/* Timeline for the history page. */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0;
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline li {
+  position: relative;
+  margin: 0 0 1.15rem;
+  padding: 0 0 0 1.35rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -0.4rem;
+  top: 0.45rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-surface);
+}
+
+.timeline__year {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-charity);
+  text-transform: uppercase;
+}
+
+.timeline__title {
+  display: block;
+  font-weight: 600;
+  color: var(--color-trinity);
+}
+
+.timeline p { margin-top: 0.15rem; }
+
+/* Saint and family cards. */
+.saint-grid,
+.family-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.saint-card,
+.family-card,
+.contact-card {
+  padding: 1.05rem 1.15rem;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.saint-card h2,
+.saint-card h3,
+.family-card h2,
+.family-card h3,
+.contact-card h2,
+.contact-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.saint-meta,
+.family-meta {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-text);
+  text-transform: uppercase;
+}
+
+.saint-card p,
+.family-card p,
+.contact-card p { margin: 0; font-size: 0.96rem; }
+.saint-card p + p,
+.family-card p + p,
+.contact-card p + p { margin-top: 0.55rem; }
+
+.saint-card a,
+.family-card a,
+.contact-card a { font-weight: 600; }
+
+/* FAQ blocks. */
+.faq { max-width: 68ch; }
+.faq details {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-trinity);
+}
+.faq details p { margin: 0.55rem 0 0; }
+
+/* Today highlight on the feast calendar. */
+.today-note {
+  margin: 1rem 0;
+  padding: 0.7rem 0.9rem;
+  border-left: 4px solid var(--color-gold);
+  background: var(--color-surface-2);
+  font-size: 0.95rem;
+}
+
+.feast-table tr.is-today {
+  outline: 2px solid var(--color-gold);
+  outline-offset: -2px;
+}
+
+.feast-table tr.is-today .date { color: var(--color-trinity); }
+
+/* Feast-day actions. */
+.calendar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+}
+
+/* Paragraph-level table of contents. */
+.toc {
+  margin: 1.25rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface-2);
+  max-width: 68ch;
+}
+
+.toc h2,
+.toc h3 { margin-top: 0; }
+.toc ul { margin: 0.4rem 0 0; }
+
+/* Footer navigation. */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+}
+
+.footer-nav a { font-weight: 500; }
+
+.back-to-top,
+.nav-toggle,
+.btn { -webkit-tap-highlight-color: transparent; }
+
+/* Accessibility: keyboard focus for new interactive cards. */
+.saint-card:focus-within,
+.family-card:focus-within,
+.contact-card:focus-within {
+  border-color: var(--color-gold);
+}
+
+/* Responsive: eight nav items need an earlier collapse than five did. */
+@media (max-width: 960px) {
+  .wrap { flex-wrap: nowrap; }
+  .nav-toggle { display: inline-block; margin-left: auto; }
+  nav.site-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.25rem 0 0.5rem;
+  }
+  .wrap.is-nav-open { flex-wrap: wrap; }
+  .wrap.is-nav-open nav.site-nav { display: flex; }
+  nav.site-nav a {
+    padding: 0.55rem 0.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline li { padding-left: 1.1rem; }
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+/* Print: keep prayer texts and calendar readable, drop site chrome. */
+@media print {
+  :root {
+    --color-bg: #fff;
+    --color-surface: #fff;
+    --color-surface-2: #fff;
+    --color-text: #000;
+    --color-text-muted: #333;
+    --color-border: #999;
+    --color-trinity: #000;
+    --color-charity: #000;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  body > header,
+  .site-footer,
+  .footer-nav,
+  .back-to-top,
+  .nav-toggle,
+  .skip-link,
+  .prayer-actions,
+  .prayer-actions button,
+  .calendar-actions,
+  .no-print {
+    display: none !important;
+  }
+
+  main { padding: 0; }
+  .card,
+  .hero,
+  .page-header,
+  .page-banner,
+  .prayer,
+  .callout,
+  .source-note,
+  .note {
+    box-shadow: none;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: #fff;
+  }
+
+  .card { max-width: none; margin: 0; }
+  .prayer { border-left: 2px solid #000; padding-left: 0.75rem; }
+  h1, h2, h3, .eyebrow, a { color: #000; }
+  a { text-decoration: underline; }
+
+  .prayer,
+  .prayer-block,
+  figure,
+  table,
+  .callout {
+    break-inside: avoid;
+  }
+
+  .feast-table thead { display: table-header-group; }
+  .feast-table { font-size: 9pt; }
+}
