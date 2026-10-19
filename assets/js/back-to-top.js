@@ -53,7 +53,7 @@
     if (supportsPreventScroll) {
       main.focus({ preventScroll: true });
     } else if (typeof main.focus === 'function') {
-      // Avoid focus() without preventScroll — it can fight smooth scrollTo.
+      // Avoid focus() without preventScroll; it can fight smooth scrollTo.
       try { main.setAttribute('tabindex', main.getAttribute('tabindex') || '-1'); } catch (_e) { /* ignore */ }
     }
   });
