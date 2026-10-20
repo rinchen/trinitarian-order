@@ -12,7 +12,7 @@ Web-sized copies committed for GitHub Pages. Originals remain on Commons / Wellc
 | `order-approval.jpg` | [Approvazione dell'Ordine, Baldassarre d'Anna](https://commons.wikimedia.org/wiki/File:Approvazione_dell%27Ordine_della_santissima_Trinit%C3%A0_o_del_riscatto_degli_schiavi_di_Baldassarre_d%27Anna_-_Santa_Maria_formosa.jpg) | Public domain |
 | `founding-mass.jpg` | [Carreño de Miranda, Founding of the Trinitarian Order](https://commons.wikimedia.org/wiki/File:Carreno-de-miranda_Orden_de_los_Trinitarios.jpg) | Public domain |
 | `st-john-de-matha.jpg` | [Laurent de La Hyre, St John of Matha (WGA12318)](https://commons.wikimedia.org/wiki/File:Laurent_de_La_Hyre_-_St_John_of_Matha,_Founder_of_the_Order_of_the_Trinitarians_-_WGA12318.jpg) | Public domain |
-| `st-felix-de-valois.jpg` | [St Felix de Valois.JPG](https://commons.wikimedia.org/wiki/File:St_Felix_de_Valois.JPG) | CC BY-SA 3.0 |
+| `st-felix-de-valois.jpg` | [Heilige Felix van Valois, RP-P-BI-2743](https://commons.wikimedia.org/wiki/File:Heilige_Felix_van_Valois_Heiligen_(serietitel),_RP-P-BI-2743.jpg), Rijksmuseum | CC0 (public domain) |
 | `st-agnes.jpg` | [Cano, Alonso, Die heilige Agnes.jpg](https://commons.wikimedia.org/wiki/File:Cano,_Alonso_%E2%80%94_Die_heilige_Agnes.jpg) | Public domain |
 | `pope-innocent-iii.jpg` | [Pope Innocent III.jpg](https://commons.wikimedia.org/wiki/File:Pope_Innocent_III.jpg) | Public domain |
 | `redemption-captives.jpg` | [Wellcome V0033178](https://wellcomecollection.org/works/svcspttk), Castellus engraving | Public Domain Mark |
