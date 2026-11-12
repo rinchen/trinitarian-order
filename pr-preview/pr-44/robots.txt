@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://rinchen.github.io/trinitarian-order/sitemap.xml
