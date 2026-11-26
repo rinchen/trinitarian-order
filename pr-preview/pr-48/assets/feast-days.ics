@@ -1,0 +1,321 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trinitarian Order//Proper Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Trinitarian Order Feast Days
+X-WR-CALDESC:Proper calendar of the Order of the Most Holy Trinity and of
+  the Captives.
+BEGIN:VEVENT
+UID:feast-0107@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260107
+RRULE:FREQ=YEARLY
+SUMMARY:St. John de Ribera
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0113@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260113
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Frances of the Incarnation
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0122@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260122
+RRULE:FREQ=YEARLY
+SUMMARY:St. Vincent Pallotti
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0128@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260128
+RRULE:FREQ=YEARLY
+SUMMARY:St. Agnes
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Feast.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0204@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260204
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Elisabetta Canori Mora
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0214@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260214
+RRULE:FREQ=YEARLY
+SUMMARY:St. John Baptist of the Conception
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Feast.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0324@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260324
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Diego Jose de Cadiz
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0416@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260416
+RRULE:FREQ=YEARLY
+SUMMARY:St. Benedict Joseph Labre
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0507@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260507
+RRULE:FREQ=YEARLY
+SUMMARY:Translation of the Relics of St. John de Matha
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0511@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260511
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Dominic Iturrate
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0608@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260608
+RRULE:FREQ=YEARLY
+SUMMARY:St. Michael of the Saints
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Feast.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0609@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260609
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Anna Maria Taigi
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0812@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260812
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Innocent XI
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0825@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260825
+RRULE:FREQ=YEARLY
+SUMMARY:St. Louis, King of France
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0912@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260912
+RRULE:FREQ=YEARLY
+SUMMARY:Holy Name of Mary
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0924@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260924
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Mark Criado
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-0928@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20260928
+RRULE:FREQ=YEARLY
+SUMMARY:St. Simon de Rojas
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1008@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261008
+RRULE:FREQ=YEARLY
+SUMMARY:Our Lady of Good Remedy
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Solemnity.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1023@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261023
+RRULE:FREQ=YEARLY
+SUMMARY:Most Holy Redeemer
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Feast.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1104@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261104
+RRULE:FREQ=YEARLY
+SUMMARY:St. Felix de Valois
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1106@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261106
+RRULE:FREQ=YEARLY
+SUMMARY:Blessed Mariano of St. Joseph and Companions
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Optional Memorial.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1113@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261113
+RRULE:FREQ=YEARLY
+SUMMARY:All Saints of the Order
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Feast.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1114@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261114
+RRULE:FREQ=YEARLY
+SUMMARY:Commemoration of all the Deceased of the Order
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Commemoration.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+BEGIN:VEVENT
+UID:feast-1217@trinitarian-order
+DTSTAMP:20261019T000000Z
+DTSTART;VALUE=DATE:20261217
+RRULE:FREQ=YEARLY
+SUMMARY:St. John de Matha
+DESCRIPTION:Proper calendar of the Order of the Most Holy Trinity and of 
+ the Captives. Rank: Solemnity.
+CATEGORIES:Trinitarian Order
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+URL:https://rinchen.github.io/trinitarian-order/feast-days.html
+END:VEVENT
+END:VCALENDAR
